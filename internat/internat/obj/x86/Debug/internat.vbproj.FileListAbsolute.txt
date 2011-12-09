@@ -1,0 +1,11 @@
+D:\internat\internat\internat\bin\Debug\internat.exe
+D:\internat\internat\internat\bin\Debug\internat.pdb
+D:\internat\internat\internat\bin\Debug\internat.xml
+D:\internat\internat\internat\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\internat\internat\internat\obj\x86\Debug\internat.hlavnaAplikacia.resources
+D:\internat\internat\internat\obj\x86\Debug\internat.Resources.resources
+D:\internat\internat\internat\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\internat\internat\internat\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\internat\internat\internat\obj\x86\Debug\internat.exe
+D:\internat\internat\internat\obj\x86\Debug\internat.xml
+D:\internat\internat\internat\obj\x86\Debug\internat.pdb
