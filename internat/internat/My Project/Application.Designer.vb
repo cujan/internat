@@ -14,10 +14,10 @@ Option Explicit On
 
 Namespace My
     
-    'NOTE: This file is auto-generated; do not modify it directly.  To make changes,
-    ' or if you encounter build errors in this file, go to the Project Designer
-    ' (go to Project Properties or double-click the My Project node in
-    ' Solution Explorer), and make changes on the Application tab.
+    'NOTE: Tento soubor je generován automaticky, neměňte jej prosím přímo.  Pro provedení změn,
+    ' nebo pokud dojde v tomto souboru k chybám sestavení, jděte do návrháře projektu
+    ' (přejděte na vlastnosti projektu, nebo dvakrát klikněte na uzel Můj projekt v
+    ' průzkumníku řešení), a proveďte změny v kartě Aplikace.
     '
     Partial Friend Class MyApplication
         
@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.internat.hlavnaAplikacia
+            Me.MainForm = Global.internat.student
         End Sub
     End Class
 End Namespace
