@@ -23,7 +23,6 @@ Partial Class student
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(student))
         Dim PriezviskoLabel As System.Windows.Forms.Label
         Dim MenoLabel As System.Windows.Forms.Label
         Dim DatumNarodeniaLabel As System.Windows.Forms.Label
@@ -38,6 +37,9 @@ Partial Class student
         Dim DatumVystupLabel As System.Windows.Forms.Label
         Dim NazovSkupinaLabel As System.Windows.Forms.Label
         Dim NazovSkolaLabel As System.Windows.Forms.Label
+        Dim CisloIzbyLabel As System.Windows.Forms.Label
+        Dim NazovLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(student))
         Me.InternatDataSet = New internat.internatDataSet()
         Me.StudentKompletBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.StudentKompletTableAdapter = New internat.internatDataSetTableAdapters.studentKompletTableAdapter()
@@ -70,6 +72,8 @@ Partial Class student
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cisloIzby = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nazov = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PriezviskoTextBox = New System.Windows.Forms.TextBox()
         Me.MenoTextBox = New System.Windows.Forms.TextBox()
         Me.DatumNarodeniaDateTimePicker = New System.Windows.Forms.DateTimePicker()
@@ -83,12 +87,16 @@ Partial Class student
         Me.DatumNastupDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.DatumVystupDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.skupinaComboBox = New System.Windows.Forms.ComboBox()
-        Me.skolaComboBox = New System.Windows.Forms.ComboBox()
-        Me.ulozButton = New System.Windows.Forms.Button()
         Me.SkupinaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SkupinaTableAdapter = New internat.internatDataSetTableAdapters.skupinaTableAdapter()
+        Me.skolaComboBox = New System.Windows.Forms.ComboBox()
         Me.SkolaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ulozButton = New System.Windows.Forms.Button()
+        Me.SkupinaTableAdapter = New internat.internatDataSetTableAdapters.skupinaTableAdapter()
         Me.SkolaTableAdapter = New internat.internatDataSetTableAdapters.skolaTableAdapter()
+        Me.CisloIzbyTextBox = New System.Windows.Forms.TextBox()
+        Me.triedaComboBox = New System.Windows.Forms.ComboBox()
+        Me.TriedaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TriedaTableAdapter = New internat.internatDataSetTableAdapters.triedaTableAdapter()
         PriezviskoLabel = New System.Windows.Forms.Label()
         MenoLabel = New System.Windows.Forms.Label()
         DatumNarodeniaLabel = New System.Windows.Forms.Label()
@@ -103,6 +111,8 @@ Partial Class student
         DatumVystupLabel = New System.Windows.Forms.Label()
         NazovSkupinaLabel = New System.Windows.Forms.Label()
         NazovSkolaLabel = New System.Windows.Forms.Label()
+        CisloIzbyLabel = New System.Windows.Forms.Label()
+        NazovLabel = New System.Windows.Forms.Label()
         CType(Me.InternatDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StudentKompletBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StudentKompletBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,7 +120,152 @@ Partial Class student
         CType(Me.StudentKompletDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SkupinaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SkolaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TriedaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PriezviskoLabel
+        '
+        PriezviskoLabel.AutoSize = True
+        PriezviskoLabel.Location = New System.Drawing.Point(7, 45)
+        PriezviskoLabel.Name = "PriezviskoLabel"
+        PriezviskoLabel.Size = New System.Drawing.Size(57, 13)
+        PriezviskoLabel.TabIndex = 2
+        PriezviskoLabel.Text = "priezvisko:"
+        '
+        'MenoLabel
+        '
+        MenoLabel.AutoSize = True
+        MenoLabel.Location = New System.Drawing.Point(278, 45)
+        MenoLabel.Name = "MenoLabel"
+        MenoLabel.Size = New System.Drawing.Size(36, 13)
+        MenoLabel.TabIndex = 4
+        MenoLabel.Text = "meno:"
+        '
+        'DatumNarodeniaLabel
+        '
+        DatumNarodeniaLabel.AutoSize = True
+        DatumNarodeniaLabel.Location = New System.Drawing.Point(4, 92)
+        DatumNarodeniaLabel.Name = "DatumNarodeniaLabel"
+        DatumNarodeniaLabel.Size = New System.Drawing.Size(91, 13)
+        DatumNarodeniaLabel.TabIndex = 6
+        DatumNarodeniaLabel.Text = "datum Narodenia:"
+        '
+        'RodneCisloLabel
+        '
+        RodneCisloLabel.AutoSize = True
+        RodneCisloLabel.Location = New System.Drawing.Point(462, 88)
+        RodneCisloLabel.Name = "RodneCisloLabel"
+        RodneCisloLabel.Size = New System.Drawing.Size(62, 13)
+        RodneCisloLabel.TabIndex = 8
+        RodneCisloLabel.Text = "rodne Cislo:"
+        '
+        'MiestoNarodeniaLabel
+        '
+        MiestoNarodeniaLabel.AutoSize = True
+        MiestoNarodeniaLabel.Location = New System.Drawing.Point(4, 117)
+        MiestoNarodeniaLabel.Name = "MiestoNarodeniaLabel"
+        MiestoNarodeniaLabel.Size = New System.Drawing.Size(92, 13)
+        MiestoNarodeniaLabel.TabIndex = 10
+        MiestoNarodeniaLabel.Text = "miesto Narodenia:"
+        '
+        'UlicaLabel
+        '
+        UlicaLabel.AutoSize = True
+        UlicaLabel.Location = New System.Drawing.Point(4, 152)
+        UlicaLabel.Name = "UlicaLabel"
+        UlicaLabel.Size = New System.Drawing.Size(32, 13)
+        UlicaLabel.TabIndex = 12
+        UlicaLabel.Text = "ulica:"
+        '
+        'MestoLabel
+        '
+        MestoLabel.AutoSize = True
+        MestoLabel.Location = New System.Drawing.Point(4, 178)
+        MestoLabel.Name = "MestoLabel"
+        MestoLabel.Size = New System.Drawing.Size(38, 13)
+        MestoLabel.TabIndex = 14
+        MestoLabel.Text = "mesto:"
+        '
+        'PscLabel
+        '
+        PscLabel.AutoSize = True
+        PscLabel.Location = New System.Drawing.Point(4, 204)
+        PscLabel.Name = "PscLabel"
+        PscLabel.Size = New System.Drawing.Size(27, 13)
+        PscLabel.TabIndex = 16
+        PscLabel.Text = "psc:"
+        '
+        'CisloOpLabel
+        '
+        CisloOpLabel.AutoSize = True
+        CisloOpLabel.Location = New System.Drawing.Point(462, 120)
+        CisloOpLabel.Name = "CisloOpLabel"
+        CisloOpLabel.Size = New System.Drawing.Size(48, 13)
+        CisloOpLabel.TabIndex = 18
+        CisloOpLabel.Text = "cislo Op:"
+        '
+        'TelefonLabel
+        '
+        TelefonLabel.AutoSize = True
+        TelefonLabel.Location = New System.Drawing.Point(4, 230)
+        TelefonLabel.Name = "TelefonLabel"
+        TelefonLabel.Size = New System.Drawing.Size(42, 13)
+        TelefonLabel.TabIndex = 20
+        TelefonLabel.Text = "telefon:"
+        '
+        'DatumNastupLabel
+        '
+        DatumNastupLabel.AutoSize = True
+        DatumNastupLabel.Location = New System.Drawing.Point(462, 153)
+        DatumNastupLabel.Name = "DatumNastupLabel"
+        DatumNastupLabel.Size = New System.Drawing.Size(76, 13)
+        DatumNastupLabel.TabIndex = 22
+        DatumNastupLabel.Text = "datum Nastup:"
+        '
+        'DatumVystupLabel
+        '
+        DatumVystupLabel.AutoSize = True
+        DatumVystupLabel.Location = New System.Drawing.Point(462, 175)
+        DatumVystupLabel.Name = "DatumVystupLabel"
+        DatumVystupLabel.Size = New System.Drawing.Size(74, 13)
+        DatumVystupLabel.TabIndex = 24
+        DatumVystupLabel.Text = "datum Vystup:"
+        '
+        'NazovSkupinaLabel
+        '
+        NazovSkupinaLabel.AutoSize = True
+        NazovSkupinaLabel.Location = New System.Drawing.Point(462, 200)
+        NazovSkupinaLabel.Name = "NazovSkupinaLabel"
+        NazovSkupinaLabel.Size = New System.Drawing.Size(81, 13)
+        NazovSkupinaLabel.TabIndex = 30
+        NazovSkupinaLabel.Text = "nazov Skupina:"
+        '
+        'NazovSkolaLabel
+        '
+        NazovSkolaLabel.AutoSize = True
+        NazovSkolaLabel.Location = New System.Drawing.Point(462, 226)
+        NazovSkolaLabel.Name = "NazovSkolaLabel"
+        NazovSkolaLabel.Size = New System.Drawing.Size(69, 13)
+        NazovSkolaLabel.TabIndex = 32
+        NazovSkolaLabel.Text = "nazov Skola:"
+        '
+        'CisloIzbyLabel
+        '
+        CisloIzbyLabel.AutoSize = True
+        CisloIzbyLabel.Location = New System.Drawing.Point(471, 252)
+        CisloIzbyLabel.Name = "CisloIzbyLabel"
+        CisloIzbyLabel.Size = New System.Drawing.Size(53, 13)
+        CisloIzbyLabel.TabIndex = 35
+        CisloIzbyLabel.Text = "cislo Izby:"
+        '
+        'NazovLabel
+        '
+        NazovLabel.AutoSize = True
+        NazovLabel.Location = New System.Drawing.Point(471, 278)
+        NazovLabel.Name = "NazovLabel"
+        NazovLabel.Size = New System.Drawing.Size(39, 13)
+        NazovLabel.TabIndex = 36
+        NazovLabel.Text = "nazov:"
         '
         'InternatDataSet
         '
@@ -133,6 +288,7 @@ Partial Class student
         Me.TableAdapterManager.skolaTableAdapter = Nothing
         Me.TableAdapterManager.skupinaTableAdapter = Nothing
         Me.TableAdapterManager.studentTableAdapter = Nothing
+        Me.TableAdapterManager.triedaTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = internat.internatDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.vychovavatelTableAdapter = Nothing
         '
@@ -167,8 +323,8 @@ Partial Class student
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(31, 22)
+        Me.BindingNavigatorCountItem.Text = "z {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorDeleteItem
@@ -251,17 +407,20 @@ Partial Class student
         '
         'StudentKompletDataGridView
         '
+        Me.StudentKompletDataGridView.AllowUserToAddRows = False
+        Me.StudentKompletDataGridView.AllowUserToDeleteRows = False
         Me.StudentKompletDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StudentKompletDataGridView.AutoGenerateColumns = False
         Me.StudentKompletDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.StudentKompletDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16})
+        Me.StudentKompletDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.cisloIzby, Me.nazov})
         Me.StudentKompletDataGridView.DataSource = Me.StudentKompletBindingSource
-        Me.StudentKompletDataGridView.Location = New System.Drawing.Point(10, 264)
+        Me.StudentKompletDataGridView.Location = New System.Drawing.Point(10, 321)
         Me.StudentKompletDataGridView.Name = "StudentKompletDataGridView"
+        Me.StudentKompletDataGridView.ReadOnly = True
         Me.StudentKompletDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.StudentKompletDataGridView.Size = New System.Drawing.Size(859, 228)
+        Me.StudentKompletDataGridView.Size = New System.Drawing.Size(871, 291)
         Me.StudentKompletDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -269,93 +428,112 @@ Partial Class student
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "priezvisko"
         Me.DataGridViewTextBoxColumn1.HeaderText = "priezvisko"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "meno"
         Me.DataGridViewTextBoxColumn2.HeaderText = "meno"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "datumNarodenia"
         Me.DataGridViewTextBoxColumn3.HeaderText = "datumNarodenia"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "rodneCislo"
         Me.DataGridViewTextBoxColumn4.HeaderText = "rodneCislo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "miestoNarodenia"
         Me.DataGridViewTextBoxColumn5.HeaderText = "miestoNarodenia"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "ulica"
         Me.DataGridViewTextBoxColumn6.HeaderText = "ulica"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "mesto"
         Me.DataGridViewTextBoxColumn7.HeaderText = "mesto"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
         'DataGridViewTextBoxColumn8
         '
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "psc"
         Me.DataGridViewTextBoxColumn8.HeaderText = "psc"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
         '
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "cisloOp"
         Me.DataGridViewTextBoxColumn9.HeaderText = "cisloOp"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
         '
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "telefon"
         Me.DataGridViewTextBoxColumn10.HeaderText = "telefon"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
         '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.DataPropertyName = "datumNastup"
         Me.DataGridViewTextBoxColumn11.HeaderText = "datumNastup"
         Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
         '
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "datumVystup"
         Me.DataGridViewTextBoxColumn12.HeaderText = "datumVystup"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
         '
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.DataPropertyName = "nazovSkupina"
         Me.DataGridViewTextBoxColumn15.HeaderText = "nazovSkupina"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
         '
         'DataGridViewTextBoxColumn16
         '
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "nazovSkola"
         Me.DataGridViewTextBoxColumn16.HeaderText = "nazovSkola"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
         '
-        'PriezviskoLabel
+        'cisloIzby
         '
-        PriezviskoLabel.AutoSize = True
-        PriezviskoLabel.Location = New System.Drawing.Point(7, 45)
-        PriezviskoLabel.Name = "PriezviskoLabel"
-        PriezviskoLabel.Size = New System.Drawing.Size(57, 13)
-        PriezviskoLabel.TabIndex = 2
-        PriezviskoLabel.Text = "priezvisko:"
+        Me.cisloIzby.DataPropertyName = "cisloIzby"
+        Me.cisloIzby.HeaderText = "cisloIzby"
+        Me.cisloIzby.Name = "cisloIzby"
+        Me.cisloIzby.ReadOnly = True
+        '
+        'nazov
+        '
+        Me.nazov.DataPropertyName = "nazov"
+        Me.nazov.HeaderText = "nazov triedy"
+        Me.nazov.Name = "nazov"
+        Me.nazov.ReadOnly = True
         '
         'PriezviskoTextBox
         '
@@ -364,15 +542,6 @@ Partial Class student
         Me.PriezviskoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.PriezviskoTextBox.TabIndex = 3
         '
-        'MenoLabel
-        '
-        MenoLabel.AutoSize = True
-        MenoLabel.Location = New System.Drawing.Point(278, 45)
-        MenoLabel.Name = "MenoLabel"
-        MenoLabel.Size = New System.Drawing.Size(36, 13)
-        MenoLabel.TabIndex = 4
-        MenoLabel.Text = "meno:"
-        '
         'MenoTextBox
         '
         Me.MenoTextBox.Location = New System.Drawing.Point(320, 42)
@@ -380,30 +549,14 @@ Partial Class student
         Me.MenoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.MenoTextBox.TabIndex = 5
         '
-        'DatumNarodeniaLabel
-        '
-        DatumNarodeniaLabel.AutoSize = True
-        DatumNarodeniaLabel.Location = New System.Drawing.Point(4, 92)
-        DatumNarodeniaLabel.Name = "DatumNarodeniaLabel"
-        DatumNarodeniaLabel.Size = New System.Drawing.Size(91, 13)
-        DatumNarodeniaLabel.TabIndex = 6
-        DatumNarodeniaLabel.Text = "datum Narodenia:"
-        '
         'DatumNarodeniaDateTimePicker
         '
+        Me.DatumNarodeniaDateTimePicker.Checked = False
         Me.DatumNarodeniaDateTimePicker.Location = New System.Drawing.Point(102, 88)
         Me.DatumNarodeniaDateTimePicker.Name = "DatumNarodeniaDateTimePicker"
+        Me.DatumNarodeniaDateTimePicker.ShowCheckBox = True
         Me.DatumNarodeniaDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.DatumNarodeniaDateTimePicker.TabIndex = 7
-        '
-        'RodneCisloLabel
-        '
-        RodneCisloLabel.AutoSize = True
-        RodneCisloLabel.Location = New System.Drawing.Point(462, 88)
-        RodneCisloLabel.Name = "RodneCisloLabel"
-        RodneCisloLabel.Size = New System.Drawing.Size(62, 13)
-        RodneCisloLabel.TabIndex = 8
-        RodneCisloLabel.Text = "rodne Cislo:"
         '
         'RodneCisloTextBox
         '
@@ -412,30 +565,12 @@ Partial Class student
         Me.RodneCisloTextBox.Size = New System.Drawing.Size(200, 20)
         Me.RodneCisloTextBox.TabIndex = 9
         '
-        'MiestoNarodeniaLabel
-        '
-        MiestoNarodeniaLabel.AutoSize = True
-        MiestoNarodeniaLabel.Location = New System.Drawing.Point(4, 117)
-        MiestoNarodeniaLabel.Name = "MiestoNarodeniaLabel"
-        MiestoNarodeniaLabel.Size = New System.Drawing.Size(92, 13)
-        MiestoNarodeniaLabel.TabIndex = 10
-        MiestoNarodeniaLabel.Text = "miesto Narodenia:"
-        '
         'MiestoNarodeniaTextBox
         '
         Me.MiestoNarodeniaTextBox.Location = New System.Drawing.Point(102, 114)
         Me.MiestoNarodeniaTextBox.Name = "MiestoNarodeniaTextBox"
         Me.MiestoNarodeniaTextBox.Size = New System.Drawing.Size(200, 20)
         Me.MiestoNarodeniaTextBox.TabIndex = 11
-        '
-        'UlicaLabel
-        '
-        UlicaLabel.AutoSize = True
-        UlicaLabel.Location = New System.Drawing.Point(4, 152)
-        UlicaLabel.Name = "UlicaLabel"
-        UlicaLabel.Size = New System.Drawing.Size(32, 13)
-        UlicaLabel.TabIndex = 12
-        UlicaLabel.Text = "ulica:"
         '
         'UlicaTextBox
         '
@@ -444,30 +579,12 @@ Partial Class student
         Me.UlicaTextBox.Size = New System.Drawing.Size(200, 20)
         Me.UlicaTextBox.TabIndex = 13
         '
-        'MestoLabel
-        '
-        MestoLabel.AutoSize = True
-        MestoLabel.Location = New System.Drawing.Point(4, 178)
-        MestoLabel.Name = "MestoLabel"
-        MestoLabel.Size = New System.Drawing.Size(38, 13)
-        MestoLabel.TabIndex = 14
-        MestoLabel.Text = "mesto:"
-        '
         'MestoTextBox
         '
         Me.MestoTextBox.Location = New System.Drawing.Point(102, 175)
         Me.MestoTextBox.Name = "MestoTextBox"
         Me.MestoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.MestoTextBox.TabIndex = 15
-        '
-        'PscLabel
-        '
-        PscLabel.AutoSize = True
-        PscLabel.Location = New System.Drawing.Point(4, 204)
-        PscLabel.Name = "PscLabel"
-        PscLabel.Size = New System.Drawing.Size(27, 13)
-        PscLabel.TabIndex = 16
-        PscLabel.Text = "psc:"
         '
         'PscTextBox
         '
@@ -476,30 +593,12 @@ Partial Class student
         Me.PscTextBox.Size = New System.Drawing.Size(200, 20)
         Me.PscTextBox.TabIndex = 17
         '
-        'CisloOpLabel
-        '
-        CisloOpLabel.AutoSize = True
-        CisloOpLabel.Location = New System.Drawing.Point(462, 120)
-        CisloOpLabel.Name = "CisloOpLabel"
-        CisloOpLabel.Size = New System.Drawing.Size(48, 13)
-        CisloOpLabel.TabIndex = 18
-        CisloOpLabel.Text = "cislo Op:"
-        '
         'CisloOpTextBox
         '
         Me.CisloOpTextBox.Location = New System.Drawing.Point(560, 117)
         Me.CisloOpTextBox.Name = "CisloOpTextBox"
         Me.CisloOpTextBox.Size = New System.Drawing.Size(200, 20)
         Me.CisloOpTextBox.TabIndex = 19
-        '
-        'TelefonLabel
-        '
-        TelefonLabel.AutoSize = True
-        TelefonLabel.Location = New System.Drawing.Point(4, 230)
-        TelefonLabel.Name = "TelefonLabel"
-        TelefonLabel.Size = New System.Drawing.Size(42, 13)
-        TelefonLabel.TabIndex = 20
-        TelefonLabel.Text = "telefon:"
         '
         'TelefonTextBox
         '
@@ -508,66 +607,40 @@ Partial Class student
         Me.TelefonTextBox.Size = New System.Drawing.Size(200, 20)
         Me.TelefonTextBox.TabIndex = 21
         '
-        'DatumNastupLabel
-        '
-        DatumNastupLabel.AutoSize = True
-        DatumNastupLabel.Location = New System.Drawing.Point(462, 153)
-        DatumNastupLabel.Name = "DatumNastupLabel"
-        DatumNastupLabel.Size = New System.Drawing.Size(76, 13)
-        DatumNastupLabel.TabIndex = 22
-        DatumNastupLabel.Text = "datum Nastup:"
-        '
         'DatumNastupDateTimePicker
         '
+        Me.DatumNastupDateTimePicker.Checked = False
         Me.DatumNastupDateTimePicker.Location = New System.Drawing.Point(560, 149)
         Me.DatumNastupDateTimePicker.Name = "DatumNastupDateTimePicker"
+        Me.DatumNastupDateTimePicker.ShowCheckBox = True
         Me.DatumNastupDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.DatumNastupDateTimePicker.TabIndex = 23
         '
-        'DatumVystupLabel
-        '
-        DatumVystupLabel.AutoSize = True
-        DatumVystupLabel.Location = New System.Drawing.Point(462, 175)
-        DatumVystupLabel.Name = "DatumVystupLabel"
-        DatumVystupLabel.Size = New System.Drawing.Size(74, 13)
-        DatumVystupLabel.TabIndex = 24
-        DatumVystupLabel.Text = "datum Vystup:"
-        '
         'DatumVystupDateTimePicker
         '
+        Me.DatumVystupDateTimePicker.Checked = False
         Me.DatumVystupDateTimePicker.Location = New System.Drawing.Point(560, 171)
         Me.DatumVystupDateTimePicker.Name = "DatumVystupDateTimePicker"
+        Me.DatumVystupDateTimePicker.ShowCheckBox = True
         Me.DatumVystupDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.DatumVystupDateTimePicker.TabIndex = 25
-        '
-        'NazovSkupinaLabel
-        '
-        NazovSkupinaLabel.AutoSize = True
-        NazovSkupinaLabel.Location = New System.Drawing.Point(462, 200)
-        NazovSkupinaLabel.Name = "NazovSkupinaLabel"
-        NazovSkupinaLabel.Size = New System.Drawing.Size(81, 13)
-        NazovSkupinaLabel.TabIndex = 30
-        NazovSkupinaLabel.Text = "nazov Skupina:"
-        '
-        'NazovSkolaLabel
-        '
-        NazovSkolaLabel.AutoSize = True
-        NazovSkolaLabel.Location = New System.Drawing.Point(462, 226)
-        NazovSkolaLabel.Name = "NazovSkolaLabel"
-        NazovSkolaLabel.Size = New System.Drawing.Size(69, 13)
-        NazovSkolaLabel.TabIndex = 32
-        NazovSkolaLabel.Text = "nazov Skola:"
         '
         'skupinaComboBox
         '
         Me.skupinaComboBox.DataSource = Me.SkupinaBindingSource
         Me.skupinaComboBox.DisplayMember = "nazov"
+        Me.skupinaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.skupinaComboBox.FormattingEnabled = True
         Me.skupinaComboBox.Location = New System.Drawing.Point(560, 198)
         Me.skupinaComboBox.Name = "skupinaComboBox"
         Me.skupinaComboBox.Size = New System.Drawing.Size(200, 21)
         Me.skupinaComboBox.TabIndex = 33
         Me.skupinaComboBox.ValueMember = "id"
+        '
+        'SkupinaBindingSource
+        '
+        Me.SkupinaBindingSource.DataMember = "skupina"
+        Me.SkupinaBindingSource.DataSource = Me.InternatDataSet
         '
         'skolaComboBox
         '
@@ -580,6 +653,11 @@ Partial Class student
         Me.skolaComboBox.TabIndex = 34
         Me.skolaComboBox.ValueMember = "id"
         '
+        'SkolaBindingSource
+        '
+        Me.SkolaBindingSource.DataMember = "skola"
+        Me.SkolaBindingSource.DataSource = Me.InternatDataSet
+        '
         'ulozButton
         '
         Me.ulozButton.Location = New System.Drawing.Point(652, 22)
@@ -589,29 +667,50 @@ Partial Class student
         Me.ulozButton.Text = "ulož"
         Me.ulozButton.UseVisualStyleBackColor = True
         '
-        'SkupinaBindingSource
-        '
-        Me.SkupinaBindingSource.DataMember = "skupina"
-        Me.SkupinaBindingSource.DataSource = Me.InternatDataSet
-        '
         'SkupinaTableAdapter
         '
         Me.SkupinaTableAdapter.ClearBeforeFill = True
-        '
-        'SkolaBindingSource
-        '
-        Me.SkolaBindingSource.DataMember = "skola"
-        Me.SkolaBindingSource.DataSource = Me.InternatDataSet
         '
         'SkolaTableAdapter
         '
         Me.SkolaTableAdapter.ClearBeforeFill = True
         '
+        'CisloIzbyTextBox
+        '
+        Me.CisloIzbyTextBox.Location = New System.Drawing.Point(560, 249)
+        Me.CisloIzbyTextBox.Name = "CisloIzbyTextBox"
+        Me.CisloIzbyTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.CisloIzbyTextBox.TabIndex = 36
+        '
+        'triedaComboBox
+        '
+        Me.triedaComboBox.DataSource = Me.TriedaBindingSource
+        Me.triedaComboBox.DisplayMember = "nazov"
+        Me.triedaComboBox.FormattingEnabled = True
+        Me.triedaComboBox.Location = New System.Drawing.Point(560, 275)
+        Me.triedaComboBox.Name = "triedaComboBox"
+        Me.triedaComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.triedaComboBox.TabIndex = 37
+        Me.triedaComboBox.ValueMember = "id"
+        '
+        'TriedaBindingSource
+        '
+        Me.TriedaBindingSource.DataMember = "trieda"
+        Me.TriedaBindingSource.DataSource = Me.InternatDataSet
+        '
+        'TriedaTableAdapter
+        '
+        Me.TriedaTableAdapter.ClearBeforeFill = True
+        '
         'student
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(883, 504)
+        Me.ClientSize = New System.Drawing.Size(895, 624)
+        Me.Controls.Add(NazovLabel)
+        Me.Controls.Add(Me.triedaComboBox)
+        Me.Controls.Add(CisloIzbyLabel)
+        Me.Controls.Add(Me.CisloIzbyTextBox)
         Me.Controls.Add(Me.ulozButton)
         Me.Controls.Add(Me.skolaComboBox)
         Me.Controls.Add(Me.skupinaComboBox)
@@ -653,6 +752,7 @@ Partial Class student
         CType(Me.StudentKompletDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SkupinaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SkolaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TriedaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -708,4 +808,10 @@ Partial Class student
     Friend WithEvents SkupinaTableAdapter As internat.internatDataSetTableAdapters.skupinaTableAdapter
     Friend WithEvents SkolaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SkolaTableAdapter As internat.internatDataSetTableAdapters.skolaTableAdapter
+    Friend WithEvents cisloIzby As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents nazov As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CisloIzbyTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents triedaComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents TriedaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TriedaTableAdapter As internat.internatDataSetTableAdapters.triedaTableAdapter
 End Class

@@ -26,6 +26,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:internat.internatDataSet.triedaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:internat.internatDataSet.skolaRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -46,6 +50,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:internat.internatDataSet.triedaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:internat.internatDataSet.skolaRowChangeEvent">
 	<summary>
 Row event argument class
@@ -63,6 +71,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:internat.internatDataSet.studentKompletRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:internat.internatDataSet.triedaRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -87,6 +99,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:internat.internatDataSetTableAdapters.studentKompletTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:internat.internatDataSetTableAdapters.triedaTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
